@@ -9,12 +9,14 @@
 <body>
   <div class="container">
     <h1>Color Contrast Helper</h1>
-    <label for="foreground">Foreground Color:</label>
-    <input type="color" id="foreground" value="#000000">
-
-    <label for="background">Background Color:</label>
-    <input type="color" id="background" value="#FFFFFF">
-
+    <div class="color-container">
+        <label for="foreground">Foreground Color:</label>
+        <input type="color" id="foreground" value="#000000">
+    </div>
+    <div class="color-container">
+        <label for="background">Background Color:</label>
+        <input type="color" id="background" value="#FFFFFF">
+    </div>
     <button id="checkContrast">Check Contrast</button>
 
     <p id="result">Result: <span id="contrastRatio">--</span></p>
