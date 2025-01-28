@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Contrast Helper</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Color Contrast Helper</h1>
+    <label for="foreground">Foreground Color:</label>
+    <input type="color" id="foreground" value="#000000">
+
+    <label for="background">Background Color:</label>
+    <input type="color" id="background" value="#FFFFFF">
+
+    <button id="checkContrast">Check Contrast</button>
+
+    <p id="result">Result: <span id="contrastRatio">--</span></p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
