@@ -5,6 +5,7 @@ const contrastRatioOutput = document.getElementById("contrastRatio");
 const modeFilterBtns = document.querySelectorAll("#mode-filter button");
 const divAuto = document.getElementById("auto");
 const divManual = document.getElementById("manual");
+const contributeBtn = document.getElementById("contribute")
 
 console.log(modeFilterBtns);
 
@@ -21,6 +22,11 @@ modeFilterBtns.forEach(button => {
 
   })
 })
+
+//redirect to github
+contributeBtn.addEventListener("click", () => {
+  window.open("https://github.com/Dvles/ColorContrastHelper", "_blank");
+});
 
 
 // Function to calculate relative luminance
