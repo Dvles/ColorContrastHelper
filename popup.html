@@ -7,19 +7,27 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Color Contrast Helper</h1>
-    <div class="color-container">
-        <label for="foreground">Foreground Color:</label>
-        <input type="color" id="foreground" value="#000000">
+  <div class="main-container">
+    
+    <div id="mode-filter">
+      <button class="active">manual</button>
+      <button>auto</button>
     </div>
-    <div class="color-container">
-        <label for="background">Background Color:</label>
-        <input type="color" id="background" value="#FFFFFF">
+    <div id="app-container">
+      <div id="manual">
+        <div class="color-container">
+            <label for="foreground">Foreground:</label>
+            <input type="color" id="foreground" value="#000000">
+        </div>
+        <div class="color-container">
+            <label for="background">Background:</label>
+            <input type="color" id="background" value="#FFFFFF">
+        </div>
+        <button id="checkContrast">Check Contrast</button>
+    
+        <p id="result">Result: <span id="contrastRatio">--</span></p>
+      </div>
     </div>
-    <button id="checkContrast">Check Contrast</button>
-
-    <p id="result">Result: <span id="contrastRatio">--</span></p>
   </div>
   <script src="popup.js"></script>
 </body>
