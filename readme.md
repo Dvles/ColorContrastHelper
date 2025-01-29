@@ -21,6 +21,3 @@ The extension should now be installed and active in your browser.
 
 
 Feel free to contribute to the development or suggest further features!
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
