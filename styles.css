@@ -38,6 +38,11 @@ body {
     color: grey;
 }
 
+#mode-filter button:hover {
+    color: rgb(73, 73, 73);
+}
+
+
 #mode-filter button.active {
     background: #ffffff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -89,7 +94,7 @@ button {
 }
 
 button:hover {
-    background: #0569db;
+    background: #2784ee;
 }
 
 /* Result section */
