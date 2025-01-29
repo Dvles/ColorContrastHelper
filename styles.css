@@ -7,6 +7,7 @@ body {
     color: #333;
     width: 170px;
     border-radius: 12px;
+    font-size: 14px;
 }
 
 /* Main container */
@@ -107,4 +108,12 @@ button:hover {
 #contrastRatio {
     font-weight: bold;
     color: #007aff;
+}
+
+.hidden{
+    display: none;
+}
+
+#auto p {
+    text-align: center;
 }

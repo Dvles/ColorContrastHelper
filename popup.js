@@ -2,6 +2,26 @@ const foregroundInput = document.getElementById("foreground");
 const backgroundInput = document.getElementById("background");
 const checkButton = document.getElementById("checkContrast");
 const contrastRatioOutput = document.getElementById("contrastRatio");
+const modeFilterBtns = document.querySelectorAll("#mode-filter button");
+const divAuto = document.getElementById("auto");
+const divManual = document.getElementById("manual");
+
+console.log(modeFilterBtns);
+
+
+// Function toggle xtsn modes
+modeFilterBtns.forEach(button => {
+  button.addEventListener ("click", ()=>{
+    modeFilterBtns.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+      divManual.classList.toggle("hidden");
+      divAuto.classList.toggle("hidden");
+
+    console.log("Active mode:", button.textContent);
+
+  })
+})
+
 
 // Function to calculate relative luminance
 function getLuminance(color) {
