@@ -35,6 +35,7 @@ body {
     cursor: pointer;
     border-radius: 6px;
     transition: background 0.2s ease;
+    color: grey;
 }
 
 #mode-filter button.active {
