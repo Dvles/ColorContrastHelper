@@ -55,3 +55,31 @@ checkButton.addEventListener("click", () => {
   contrastRatioOutput.textContent += ` (${compliance})`;
 });
 
+//// AUTO MODE
+
+// Function to get the computed color styles of the page's body and background
+function getColorFromPage() {
+  const bodyColor = window.getComputedStyle(document.body).color;
+  const bodyBackgroundColor = window.getComputedStyle(document.body).backgroundColor;
+
+  console.log("Body color: ", rgbToHex(bodyColor)); // Log the foreground color (text color)
+  console.log("Body background color: ", rgbToHex(bodyBackgroundColor)); // Log the background color
+
+  return { 
+    foreground: rgbToHex(bodyColor), 
+    background: rgbToHex(bodyBackgroundColor)
+  };
+}
+
+// Function to convert RGB color to Hex format
+function rgbToHex(rgb) {
+  let result = rgb.match(/\d+/g);  // Get the numbers from the RGB string
+  if (result) {
+    return `#${((1 << 24) + (parseInt(result[0]) << 16) + (parseInt(result[1]) << 8) + parseInt(result[2])).toString(16).slice(1)}`;
+  }
+  return "#000000"; // Return black as fallback if conversion fails
+}
+
+// Run the function to get the colors
+const colors = getColorFromPage();
+
