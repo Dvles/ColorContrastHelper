@@ -55,26 +55,3 @@ checkButton.addEventListener("click", () => {
   contrastRatioOutput.textContent += ` (${compliance})`;
 });
 
-
-// eye drop API
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Check if the browser supports the EyeDropper API
-  if (!window.EyeDropper) {
-      alert("Your browser does not support the EyeDropper API.");
-      return;
-  }
-
-  const eyeDropper = new EyeDropper();
-
-  document.getElementById("pickForeground").addEventListener("click", async () => {
-      try {
-          const result = await eyeDropper.open();
-          document.getElementById("foreground").value = result.sRGBHex;
-      } catch (err) {
-          console.error("Eyedropper failed:", err);
-      }
-  });
-
-
-});
