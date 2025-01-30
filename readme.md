@@ -1,7 +1,7 @@
 # Color Contrast Helper Extension
 
 (IN DEVELOPMENT)
-A simple Firefox extension designed to help users check the contrast ratio between two colors. It helps ensure that web content is accessible for users with visual impairments by providing an intuitive tool for comparing foreground and background colors.
+A simple Firefox sidebar extension designed to help users check the contrast ratio between two colors. It helps ensure that web content is accessible for users with visual impairments by providing an intuitive tool for comparing foreground and background colors.
 
 ## Features
 - **Manual Mode:** Select foreground and background colors using color pickers, and check the contrast ratio.
