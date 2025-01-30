@@ -80,8 +80,18 @@ input[type="color"] {
     cursor: pointer;
 }
 
+img {
+    max-width: 10px;
+}
+
+button img {
+    max-width: 10px;
+    padding: 0px;
+    width: auto;
+}
+
 /* Buttons */
-button {
+button#checkContrast {
     width: 100%;
     padding: 10px;
     border: none;
