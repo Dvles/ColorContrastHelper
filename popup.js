@@ -5,29 +5,34 @@ const contrastRatioOutput = document.getElementById("contrastRatio");
 const modeFilterBtns = document.querySelectorAll("#mode-filter button");
 const divAuto = document.getElementById("auto");
 const divManual = document.getElementById("manual");
-const contributeBtn = document.getElementById("contribute")
+const contributeBtn = document.getElementById("contribute");
+const autoForegroundInput = document.getElementById("autoForeground");
+const autoBackgroundInput = document.getElementById("autoBackground");
+const autoContrastRatioOutput = document.getElementById("autoContrastRatio");
+const autoComplianceOutput = document.getElementById("autoCompliance");
 
 console.log(modeFilterBtns);
 
-
-// Function toggle xtsn modes
+// Function to toggle extension modes
 modeFilterBtns.forEach(button => {
-  button.addEventListener ("click", ()=>{
+  button.addEventListener("click", () => {
     modeFilterBtns.forEach(btn => btn.classList.remove("active"));
     button.classList.add("active");
-      divManual.classList.toggle("hidden");
-      divAuto.classList.toggle("hidden");
+    divManual.classList.toggle("hidden");
+    divAuto.classList.toggle("hidden");
 
     console.log("Active mode:", button.textContent);
 
-  })
-})
+    if (button.textContent.toLowerCase() === "auto") {
+      autoAnalyzeColorContrast();
+    }
+  });
+});
 
-//redirect to github
+// Redirect to GitHub
 contributeBtn.addEventListener("click", () => {
   window.open("https://github.com/Dvles/ColorContrastHelper", "_blank");
 });
-
 
 // Function to calculate relative luminance
 function getLuminance(color) {
@@ -42,20 +47,6 @@ function getContrastRatio(foreground, background) {
   const lum2 = getLuminance(background);
   return (Math.max(lum1, lum2) + 0.05) / (Math.min(lum1, lum2) + 0.05);
 }
-
-// Add event listener for button
-checkButton.addEventListener("click", () => {
-  const foreground = foregroundInput.value.replace("#", "");
-  const background = backgroundInput.value.replace("#", "");
-  const contrastRatio = getContrastRatio(foreground, background).toFixed(2);
-  contrastRatioOutput.textContent = contrastRatio;
-
-  // Provide WCAG compliance feedback
-  const compliance = contrastRatio >= 4.5 ? "Pass" : "Fail";
-  contrastRatioOutput.textContent += ` (${compliance})`;
-});
-
-//// AUTO MODE
 
 // Function to get the computed color styles of the page's body and background
 function getColorFromPage() {
@@ -80,6 +71,27 @@ function rgbToHex(rgb) {
   return "#000000"; // Return black as fallback if conversion fails
 }
 
-// Run the function to get the colors
-const colors = getColorFromPage();
+// Function to automatically fetch and analyze color contrast for auto mode
+function autoAnalyzeColorContrast() {
+  const { foreground, background } = getColorFromPage();
+  if (foreground && background) {
+    // Set the values of the inputs (this will reflect in the UI)
+    autoForegroundInput.value = foreground;
+    autoBackgroundInput.value = background;
 
+    // Calculate contrast ratio
+    const contrastRatio = getContrastRatio(foreground.replace("#", ""), background.replace("#", "")).toFixed(2);
+    autoContrastRatioOutput.textContent = contrastRatio;
+
+    // Provide WCAG compliance feedback
+    const compliance = contrastRatio >= 4.5 ? "Pass" : "Fail";
+    autoComplianceOutput.textContent = `Compliance: ${compliance}`;
+  } else {
+    console.error("Could not extract valid colors from the page.");
+  }
+}
+
+// Automatically trigger color analysis when switching to 'auto' mode
+if (divAuto && !divAuto.classList.contains('hidden')) {
+  autoAnalyzeColorContrast();
+}

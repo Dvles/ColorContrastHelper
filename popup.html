@@ -8,12 +8,12 @@
 </head>
 <body>
   <div class="main-container">
-    
     <div id="mode-filter">
       <button class="active">manual</button>
       <button>auto</button>
     </div>
     <div id="app-container">
+      <!-- Manual Mode -->
       <div id="manual">
         <div class="color-container">
             <label for="foreground">Foreground:</label>
@@ -26,11 +26,22 @@
         <button id="checkContrast">Check Contrast</button>
         <p id="result">Result: <span id="contrastRatio">--</span></p>
       </div>
+
+      <!-- Auto Mode -->
       <div id="auto" class="hidden">
-        <p>In development</p>
-        <button id="contribute">contribute</button>
+        <div class="color-container">
+          <label for="autoForeground">Foreground:</label>
+          <input type="color" id="autoForeground" disabled>
+        </div>
+        <div class="color-container">
+          <label for="autoBackground">Background:</label>
+          <input type="color" id="autoBackground" disabled>
+        </div>
+        <p>Result: <span id="autoContrastRatio">--</span></p>
+        <p id="autoCompliance">--</p>
       </div>
     </div>
+    
   </div>
   <script src="popup.js"></script>
 </body>
