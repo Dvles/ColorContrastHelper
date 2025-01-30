@@ -65,5 +65,16 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
   }
 
+  const eyeDropper = new EyeDropper();
+
+  document.getElementById("pickForeground").addEventListener("click", async () => {
+      try {
+          const result = await eyeDropper.open();
+          document.getElementById("foreground").value = result.sRGBHex;
+      } catch (err) {
+          console.error("Eyedropper failed:", err);
+      }
+  });
+
 
 });
