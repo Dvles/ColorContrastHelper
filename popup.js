@@ -54,3 +54,16 @@ checkButton.addEventListener("click", () => {
   const compliance = contrastRatio >= 4.5 ? "Pass" : "Fail";
   contrastRatioOutput.textContent += ` (${compliance})`;
 });
+
+
+// eye drop API
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Check if the browser supports the EyeDropper API
+  if (!window.EyeDropper) {
+      alert("Your browser does not support the EyeDropper API.");
+      return;
+  }
+
+
+});
